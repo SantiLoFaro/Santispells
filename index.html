@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Santispells</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-class="wizard">
+    <main class="app-shell">
+      <section class="toolbar" aria-labelledby="app-title">
+        <div>
+          <p class="eyebrow">Dungeons & Dragons 5e</p>
+          <h1 id="app-title">Santispells</h1>
+        </div>
+
+        <div class="field-group">
+          <label for="characterName">Personaggio</label>
+          <input id="characterName" type="text" autocomplete="off" placeholder="Nome" />
+        </div>
+
+        <div class="profile-actions" aria-label="Profili salvati">
+          <div class="field-group">
+            <label for="profileSelect">Profilo salvato</label>
+            <select id="profileSelect"></select>
+          </div>
+          <button id="loadProfileBtn" type="button">Carica/crea</button>
+          <button id="deleteProfileBtn" type="button">Elimina</button>
+        </div>
+
+        <div class="field-group">
+          <label for="classSelect">Classe / sfondo</label>
+          <select id="classSelect">
+            <option value="sorcerer">Stregone</option>
+            <option value="cleric">Chierico</option>
+            <option value="druid">Druido</option>
+            <option value="wizard">Mago</option>
+            <option value="ranger">Ranger</option>
+            <option value="warlock">Warlock</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="summary-panel" aria-label="Riepilogo slot">
+        <div>
+          <p class="eyebrow">Slot rimasti</p>
+          <div id="totalRemaining" class="total">0</div>
+        </div>
+        <div class="summary-actions">
+          <button id="restoreAllBtn" type="button">Riposo lungo</button>
+          <button id="emptyAllBtn" type="button">Svuota</button>
+          <button id="resetBtn" type="button">Reset scheda</button>
+        </div>
+      </section>
+
+      <section class="slots-panel" aria-labelledby="slots-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Gestione</p>
+            <h2 id="slots-title">Slot incantesimo</h2>
+          </div>
+          <p id="saveStatus" class="save-status" role="status">Salvato in locale</p>
+        </div>
+
+        <div id="slotsGrid" class="slots-grid"></div>
+      </section>
+
+      <section id="warlockPanel" class="warlock-panel" aria-labelledby="warlock-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Pact Magic</p>
+            <h2 id="warlock-title">Slot warlock</h2>
+          </div>
+        </div>
+        <div class="warlock-grid">
+          <div class="field-group">
+            <label for="pactLevel">Livello slot</label>
+            <select id="pactLevel"></select>
+          </div>
+          <div class="field-group">
+            <label for="pactMax">Slot massimi</label>
+            <input id="pactMax" type="number" inputmode="numeric" min="0" max="8" />
+          </div>
+          <div class="counter-box">
+            <button id="pactMinusBtn" type="button">-</button>
+            <span id="pactRemaining">0</span>
+            <button id="pactPlusBtn" type="button">+</button>
+          </div>
+          <button id="pactRestoreBtn" type="button">Ripristina pact</button>
+        </div>
+      </section>
+    </main>
+
+    <template id="slotTemplate">
+      <article class="slot-card">
+        <div class="slot-head">
+          <h3></h3>
+          <span class="slot-fraction"></span>
+        </div>
+        <div class="slot-controls">
+          <button class="minus" type="button">-</button>
+          <div class="remaining"></div>
+          <button class="plus" type="button">+</button>
+        </div>
+        <label>
+          Massimi
+          <input class="max-input" type="number" inputmode="numeric" min="0" max="12" />
+        </label>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
