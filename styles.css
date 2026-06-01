@@ -23,11 +23,22 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 12%, var(--glow), transparent 34rem),
-    linear-gradient(rgba(10, 12, 14, 0.62), rgba(10, 12, 14, 0.9)),
-    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 22px),
+    radial-gradient(circle at 18% 16%, var(--glow), transparent 28rem),
+    radial-gradient(circle at 84% 10%, color-mix(in srgb, var(--accent-2), transparent 60%), transparent 24rem),
+    linear-gradient(rgba(10, 12, 14, 0.52), rgba(10, 12, 14, 0.92)),
+    var(--class-pattern),
     var(--bg);
   transition: background 180ms ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background: var(--class-mark);
+  mix-blend-mode: screen;
 }
 
 body[data-class="sorcerer"] {
@@ -35,6 +46,12 @@ body[data-class="sorcerer"] {
   --accent: #cf425a;
   --accent-2: #f0a24f;
   --glow: rgba(207, 66, 90, 0.36);
+  --class-pattern:
+    radial-gradient(circle at 20% 90%, rgba(240, 162, 79, 0.3), transparent 18rem),
+    repeating-conic-gradient(from 20deg, rgba(207, 66, 90, 0.18) 0 10deg, transparent 10deg 26deg);
+  --class-mark:
+    radial-gradient(circle at 50% 18%, transparent 0 5rem, rgba(240, 162, 79, 0.5) 5.2rem 5.5rem, transparent 5.7rem),
+    linear-gradient(135deg, transparent 42%, rgba(240, 162, 79, 0.55) 43% 45%, transparent 46%);
 }
 
 body[data-class="cleric"] {
@@ -42,6 +59,12 @@ body[data-class="cleric"] {
   --accent: #d2b76a;
   --accent-2: #f1e2ad;
   --glow: rgba(210, 183, 106, 0.34);
+  --class-pattern:
+    radial-gradient(circle at 50% 0%, rgba(241, 226, 173, 0.3), transparent 22rem),
+    repeating-linear-gradient(0deg, rgba(241, 226, 173, 0.12) 0 2px, transparent 2px 32px);
+  --class-mark:
+    linear-gradient(90deg, transparent 47%, rgba(241, 226, 173, 0.65) 48% 52%, transparent 53%),
+    linear-gradient(0deg, transparent 44%, rgba(241, 226, 173, 0.5) 45% 49%, transparent 50%);
 }
 
 body[data-class="druid"] {
@@ -49,6 +72,12 @@ body[data-class="druid"] {
   --accent: #55a067;
   --accent-2: #c1a158;
   --glow: rgba(85, 160, 103, 0.34);
+  --class-pattern:
+    radial-gradient(ellipse at 80% 15%, rgba(85, 160, 103, 0.34), transparent 22rem),
+    repeating-radial-gradient(circle at 10% 90%, rgba(193, 161, 88, 0.12) 0 2px, transparent 2px 18px);
+  --class-mark:
+    radial-gradient(ellipse at 50% 42%, rgba(85, 160, 103, 0.58) 0 3.6rem, transparent 3.8rem),
+    linear-gradient(28deg, transparent 47%, rgba(193, 161, 88, 0.5) 48% 50%, transparent 51%);
 }
 
 body[data-class="wizard"] {
@@ -56,6 +85,12 @@ body[data-class="wizard"] {
   --accent: #5577c8;
   --accent-2: #b79ce7;
   --glow: rgba(85, 119, 200, 0.34);
+  --class-pattern:
+    radial-gradient(circle at 22% 25%, rgba(183, 156, 231, 0.32), transparent 20rem),
+    repeating-linear-gradient(60deg, rgba(85, 119, 200, 0.16) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(120deg, rgba(183, 156, 231, 0.1) 0 1px, transparent 1px 26px);
+  --class-mark:
+    conic-gradient(from 0deg at 50% 42%, transparent 0 12%, rgba(183, 156, 231, 0.58) 12% 14%, transparent 14% 26%, rgba(85, 119, 200, 0.55) 26% 28%, transparent 28%);
 }
 
 body[data-class="ranger"] {
@@ -63,6 +98,12 @@ body[data-class="ranger"] {
   --accent: #77913e;
   --accent-2: #c68a48;
   --glow: rgba(119, 145, 62, 0.34);
+  --class-pattern:
+    radial-gradient(circle at 80% 80%, rgba(198, 138, 72, 0.28), transparent 20rem),
+    repeating-linear-gradient(145deg, rgba(119, 145, 62, 0.18) 0 3px, transparent 3px 30px);
+  --class-mark:
+    radial-gradient(circle at 50% 38%, transparent 0 4.5rem, rgba(198, 138, 72, 0.58) 4.7rem 5rem, transparent 5.2rem),
+    linear-gradient(90deg, transparent 22%, rgba(198, 138, 72, 0.62) 23% 76%, transparent 77%);
 }
 
 body[data-class="warlock"] {
@@ -70,6 +111,12 @@ body[data-class="warlock"] {
   --accent: #8a57d4;
   --accent-2: #52c6a9;
   --glow: rgba(138, 87, 212, 0.36);
+  --class-pattern:
+    radial-gradient(circle at 18% 18%, rgba(82, 198, 169, 0.24), transparent 20rem),
+    repeating-conic-gradient(from 45deg, rgba(138, 87, 212, 0.17) 0 8deg, transparent 8deg 22deg);
+  --class-mark:
+    radial-gradient(circle at 50% 36%, rgba(82, 198, 169, 0.62) 0 1.2rem, transparent 1.35rem),
+    radial-gradient(circle at 50% 36%, transparent 0 4.3rem, rgba(138, 87, 212, 0.62) 4.5rem 4.9rem, transparent 5.1rem);
 }
 
 button,
@@ -112,8 +159,9 @@ select {
   gap: 18px;
 }
 
+.hero-panel,
 .toolbar,
-.summary-panel,
+.command-panel,
 .slots-panel,
 .warlock-panel {
   border: 1px solid var(--line);
@@ -122,9 +170,69 @@ select {
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.36);
 }
 
+.hero-panel {
+  position: relative;
+  min-height: 210px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+  gap: 18px;
+  align-items: center;
+  overflow: hidden;
+  padding: 26px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.34), rgba(255, 255, 255, 0.03)),
+    var(--panel);
+}
+
+.class-sigil {
+  position: relative;
+  min-height: 150px;
+  border: 1px solid color-mix(in srgb, var(--accent), white 15%);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--accent), transparent 15%), transparent 4.2rem),
+    conic-gradient(from 45deg, color-mix(in srgb, var(--accent-2), transparent 20%), transparent, color-mix(in srgb, var(--accent), transparent 15%));
+}
+
+.class-sigil::before {
+  content: "ARCANA";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+body[data-class="sorcerer"] .class-sigil::before {
+  content: "BLOODLINE";
+}
+
+body[data-class="cleric"] .class-sigil::before {
+  content: "DIVINE";
+}
+
+body[data-class="druid"] .class-sigil::before {
+  content: "WILD";
+}
+
+body[data-class="wizard"] .class-sigil::before {
+  content: "ARCANA";
+}
+
+body[data-class="ranger"] .class-sigil::before {
+  content: "HUNT";
+}
+
+body[data-class="warlock"] .class-sigil::before {
+  content: "PACT";
+}
+
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) minmax(170px, 220px) minmax(260px, 1fr) minmax(180px, 240px);
+  grid-template-columns: minmax(170px, 220px) minmax(260px, 1fr) minmax(180px, 240px);
   gap: 16px;
   align-items: end;
   padding: 22px;
@@ -177,25 +285,15 @@ h3 {
   font-weight: 700;
 }
 
-.summary-panel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+.command-panel {
   padding: 18px 22px;
-}
-
-.total {
-  font-size: 3.2rem;
-  line-height: 1;
-  font-weight: 900;
 }
 
 .summary-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .slots-panel,
@@ -286,6 +384,7 @@ body[data-class="warlock"] .warlock-panel {
 }
 
 @media (max-width: 920px) {
+  .hero-panel,
   .toolbar,
   .profile-actions,
   .warlock-grid {
@@ -296,13 +395,8 @@ body[data-class="warlock"] .warlock-panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .summary-panel {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .summary-actions {
-    justify-content: flex-start;
+  .hero-panel {
+    min-height: auto;
   }
 }
 
@@ -313,7 +407,7 @@ body[data-class="warlock"] .warlock-panel {
   }
 
   .toolbar,
-  .summary-panel,
+  .command-panel,
   .slots-panel,
   .warlock-panel {
     padding: 16px;

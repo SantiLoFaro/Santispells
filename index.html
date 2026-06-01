@@ -8,12 +8,15 @@
   </head>
   <body data-class="wizard">
     <main class="app-shell">
-      <section class="toolbar" aria-labelledby="app-title">
+      <section class="hero-panel" aria-labelledby="app-title">
         <div>
           <p class="eyebrow">Dungeons & Dragons 5e</p>
           <h1 id="app-title">Santispells</h1>
         </div>
+        <div class="class-sigil" aria-hidden="true"></div>
+      </section>
 
+      <section class="toolbar" aria-label="Impostazioni personaggio">
         <div class="field-group">
           <label for="characterName">Personaggio</label>
           <input id="characterName" type="text" autocomplete="off" placeholder="Nome" />
@@ -41,11 +44,7 @@
         </div>
       </section>
 
-      <section class="summary-panel" aria-label="Riepilogo slot">
-        <div>
-          <p class="eyebrow">Slot rimasti</p>
-          <div id="totalRemaining" class="total">0</div>
-        </div>
+      <section class="command-panel" aria-label="Azioni rapide">
         <div class="summary-actions">
           <button id="restoreAllBtn" type="button">Riposo lungo</button>
           <button id="emptyAllBtn" type="button">Svuota</button>

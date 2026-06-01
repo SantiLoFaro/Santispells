@@ -18,7 +18,6 @@ const loadProfileBtn = document.querySelector("#loadProfileBtn");
 const deleteProfileBtn = document.querySelector("#deleteProfileBtn");
 const slotsGrid = document.querySelector("#slotsGrid");
 const slotTemplate = document.querySelector("#slotTemplate");
-const totalRemaining = document.querySelector("#totalRemaining");
 const saveStatus = document.querySelector("#saveStatus");
 const restoreAllBtn = document.querySelector("#restoreAllBtn");
 const emptyAllBtn = document.querySelector("#emptyAllBtn");
@@ -253,13 +252,9 @@ function renderProfiles() {
 }
 
 function render() {
-  const pactTotal = state.className === "warlock" ? state.pact.remaining : 0;
   document.body.dataset.class = state.className;
   classSelect.value = state.className;
   characterName.value = state.characterName;
-  totalRemaining.textContent = String(
-    state.slots.reduce((total, slot) => total + slot.remaining, 0) + pactTotal,
-  );
   renderProfiles();
   renderSlots();
   renderPact();
